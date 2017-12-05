@@ -1,5 +1,7 @@
 #pragma once
 
+#include "StartScreenControl.h"
+
 namespace Jeopardy {
 
 	using namespace System;
@@ -54,12 +56,20 @@ namespace Jeopardy {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(369, 287);
+			this->ClientSize = System::Drawing::Size(738, 331);
+			this->MaximizeBox = false;
 			this->Name = L"MainForm";
-			this->Text = L"MainForm";
+			this->Text = L"Jeopardy++";
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e) {
+		StartScreenControl ^sscontrol = gcnew StartScreenControl();
+		sscontrol->Top = 0;
+		sscontrol->Left = 0;
+		this->Controls->Add(sscontrol);
+	}
 	};
 }

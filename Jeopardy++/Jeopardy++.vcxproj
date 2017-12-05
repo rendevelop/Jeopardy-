@@ -133,12 +133,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="ProfilesControl.cpp" />
     <ClCompile Include="QuestionControl.cpp" />
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ProfilesControl.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="QuestionControl.h">
       <FileType>CppControl</FileType>
@@ -150,6 +154,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfilesControl.resx">
+      <DependentUpon>ProfilesControl.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuestionControl.resx">
       <DependentUpon>QuestionControl.h</DependentUpon>
