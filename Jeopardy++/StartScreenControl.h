@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ProfilesControl.h"
+
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -71,7 +73,7 @@ namespace Jeopardy {
 			this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
 			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(754, 368);
+			this->pictureBox1->Size = System::Drawing::Size(754, 490);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &StartScreenControl::pictureBox1_Click);
@@ -84,7 +86,7 @@ namespace Jeopardy {
 			this->StartButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->StartButton->ForeColor = System::Drawing::Color::White;
-			this->StartButton->Location = System::Drawing::Point(263, 118);
+			this->StartButton->Location = System::Drawing::Point(263, 209);
 			this->StartButton->Name = L"StartButton";
 			this->StartButton->Size = System::Drawing::Size(229, 53);
 			this->StartButton->TabIndex = 1;
@@ -99,12 +101,13 @@ namespace Jeopardy {
 			this->ProfilesButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ProfilesButton->ForeColor = System::Drawing::Color::White;
-			this->ProfilesButton->Location = System::Drawing::Point(244, 201);
+			this->ProfilesButton->Location = System::Drawing::Point(244, 292);
 			this->ProfilesButton->Name = L"ProfilesButton";
 			this->ProfilesButton->Size = System::Drawing::Size(267, 53);
 			this->ProfilesButton->TabIndex = 2;
 			this->ProfilesButton->Text = L"Student Profiles";
 			this->ProfilesButton->UseVisualStyleBackColor = false;
+			this->ProfilesButton->Click += gcnew System::EventHandler(this, &StartScreenControl::ProfilesButton_Click);
 			// 
 			// ExitButton
 			// 
@@ -114,7 +117,7 @@ namespace Jeopardy {
 			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ExitButton->ForeColor = System::Drawing::Color::White;
-			this->ExitButton->Location = System::Drawing::Point(291, 282);
+			this->ExitButton->Location = System::Drawing::Point(291, 375);
 			this->ExitButton->Name = L"ExitButton";
 			this->ExitButton->Size = System::Drawing::Size(172, 53);
 			this->ExitButton->TabIndex = 3;
@@ -133,7 +136,7 @@ namespace Jeopardy {
 			this->Controls->Add(this->StartButton);
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"StartScreenControl";
-			this->Size = System::Drawing::Size(754, 368);
+			this->Size = System::Drawing::Size(754, 490);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
@@ -145,5 +148,12 @@ namespace Jeopardy {
 		// TODO AUTOSAVE DATA
 		Application::Exit();
 	}
+private: System::Void ProfilesButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	/*ProfilesControl ^pfcontrol = gcnew ProfilesControl();
+	pfcontrol->Left = 0;
+	pfcontrol->Top = 0;
+	this->Controls->Clear();
+	this->Controls->Add(pfcontrol);*/
+}
 };
 }

@@ -104,6 +104,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <EntryPointSymbol>Main</EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -132,12 +134,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlertControl.cpp" />
+    <ClCompile Include="CreateProfileControl.cpp" />
+    <ClCompile Include="EditProfileControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ProfilesControl.cpp" />
     <ClCompile Include="QuestionControl.cpp" />
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlertControl.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="CreateProfileControl.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="EditProfileControl.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -152,6 +166,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CreateProfileControl.resx">
+      <DependentUpon>CreateProfileControl.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProfileControl.resx">
+      <DependentUpon>EditProfileControl.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>

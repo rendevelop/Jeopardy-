@@ -27,6 +27,15 @@
     <ClInclude Include="ProfilesControl.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="CreateProfileControl.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlertControl.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditProfileControl.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp">
@@ -39,6 +48,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ProfilesControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProfileControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlertControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditProfileControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -55,6 +73,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="StartScreenControl.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfilesControl.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

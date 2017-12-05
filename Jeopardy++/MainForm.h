@@ -56,7 +56,8 @@ namespace Jeopardy {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(738, 331);
+			this->ClientSize = System::Drawing::Size(738, 461);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"MainForm";
 			this->Text = L"Jeopardy++";
