@@ -134,7 +134,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAssessment.cpp" />
+    <ClCompile Include="CAssessUnit.cpp" />
+    <ClCompile Include="CContactInfo.cpp" />
+    <ClCompile Include="CCourseInfo.cpp" />
+    <ClCompile Include="CGame.cpp" />
+    <ClCompile Include="CMan.cpp" />
+    <ClCompile Include="CProject.cpp" />
+    <ClCompile Include="CQuestion.cpp" />
+    <ClCompile Include="CQuestionPool.cpp" />
+    <ClCompile Include="CQuiz.cpp" />
     <ClCompile Include="CreateProfileControl.cpp" />
+    <ClCompile Include="CSchoolExperience.cpp" />
+    <ClCompile Include="CStudent.cpp" />
+    <ClCompile Include="CWorkExperience.cpp" />
     <ClCompile Include="EditProfileControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ProfilesControl.cpp" />
@@ -143,9 +156,22 @@
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CAssessment.h" />
+    <ClInclude Include="CAssessUnit.h" />
+    <ClInclude Include="CContactInfo.h" />
+    <ClInclude Include="CCourseInfo.h" />
+    <ClInclude Include="CGame.h" />
+    <ClInclude Include="CMan.h" />
+    <ClInclude Include="CProject.h" />
+    <ClInclude Include="CQuestion.h" />
+    <ClInclude Include="CQuestionPool.h" />
+    <ClInclude Include="CQuiz.h" />
     <ClInclude Include="CreateProfileControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="CSchoolExperience.h" />
+    <ClInclude Include="CStudent.h" />
+    <ClInclude Include="CWorkExperience.h" />
     <ClInclude Include="EditProfileControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>

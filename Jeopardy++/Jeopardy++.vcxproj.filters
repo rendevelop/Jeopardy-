@@ -36,46 +36,43 @@
     <ClInclude Include="QuizControl.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CMan.h">
+    <ClInclude Include="CAssessment.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CProject.h">
+    <ClInclude Include="CAssessUnit.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CQuestion.h">
+    <ClInclude Include="CContactInfo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CQuestionPool.h">
+    <ClInclude Include="CCourseInfo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CQuiz.h">
+    <ClInclude Include="CGame.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CSchoolExperience.h">
+    <ClInclude Include="CMan.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CStudent.h">
+    <ClInclude Include="CProject.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CWorkExperience.h">
+    <ClInclude Include="CQuestion.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\JeopardyGame.h">
+    <ClInclude Include="CQuestionPool.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CAssessment.h">
+    <ClInclude Include="CQuiz.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CAssessUnit.h">
+    <ClInclude Include="CSchoolExperience.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CContactInfo.h">
+    <ClInclude Include="CStudent.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CCourseInfo.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CGame.h">
+    <ClInclude Include="CWorkExperience.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -101,46 +98,43 @@
     <ClCompile Include="QuizControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CProject.cpp">
+    <ClCompile Include="CAssessment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CQuestion.cpp">
+    <ClCompile Include="CAssessUnit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CQuestionPool.cpp">
+    <ClCompile Include="CContactInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CQuiz.cpp">
+    <ClCompile Include="CCourseInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CSchoolExperience.cpp">
+    <ClCompile Include="CGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CStudent.cpp">
+    <ClCompile Include="CMan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CWorkExperience.cpp">
+    <ClCompile Include="CProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\JeopardyGame.cpp">
+    <ClCompile Include="CQuestion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CAssessment.cpp">
+    <ClCompile Include="CQuestionPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CAssessUnit.cpp">
+    <ClCompile Include="CQuiz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CContactInfo.cpp">
+    <ClCompile Include="CSchoolExperience.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CCourseInfo.cpp">
+    <ClCompile Include="CStudent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CGame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CMan.cpp">
+    <ClCompile Include="CWorkExperience.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -166,6 +160,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="EditProfileControl.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizControl.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
