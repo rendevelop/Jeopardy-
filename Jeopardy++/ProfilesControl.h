@@ -2,6 +2,10 @@
 
 
 #include "StartScreenControl.h"
+#include "CreateProfileControl.h"
+#include "EditProfileControl.h"
+
+
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -93,6 +97,7 @@ namespace Jeopardy {
 			this->CreateButton->TabIndex = 2;
 			this->CreateButton->Text = L"Create Profile";
 			this->CreateButton->UseVisualStyleBackColor = false;
+			this->CreateButton->Click += gcnew System::EventHandler(this, &ProfilesControl::CreateButton_Click);
 			// 
 			// ImportButton
 			// 
@@ -138,6 +143,7 @@ namespace Jeopardy {
 			this->EditButton->TabIndex = 5;
 			this->EditButton->Text = L"Edit Profile";
 			this->EditButton->UseVisualStyleBackColor = false;
+			this->EditButton->Click += gcnew System::EventHandler(this, &ProfilesControl::EditButton_Click);
 			// 
 			// BackButton
 			// 
@@ -174,6 +180,8 @@ namespace Jeopardy {
 
 		}
 #pragma endregion
-	private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void CreateButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void EditButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
