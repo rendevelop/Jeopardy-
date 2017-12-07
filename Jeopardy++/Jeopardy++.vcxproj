@@ -134,18 +134,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AlertControl.cpp" />
     <ClCompile Include="CreateProfileControl.cpp" />
     <ClCompile Include="EditProfileControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ProfilesControl.cpp" />
     <ClCompile Include="QuestionControl.cpp" />
+    <ClCompile Include="QuizControl.cpp" />
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AlertControl.h">
-      <FileType>CppControl</FileType>
-    </ClInclude>
     <ClInclude Include="CreateProfileControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -159,6 +156,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="QuestionControl.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="QuizControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="StartScreenControl.h">
@@ -180,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuestionControl.resx">
       <DependentUpon>QuestionControl.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizControl.resx">
+      <DependentUpon>QuizControl.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartScreenControl.resx">
       <DependentUpon>StartScreenControl.h</DependentUpon>

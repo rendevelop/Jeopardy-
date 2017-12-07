@@ -30,10 +30,10 @@
     <ClInclude Include="CreateProfileControl.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="AlertControl.h">
+    <ClInclude Include="EditProfileControl.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="EditProfileControl.h">
+    <ClInclude Include="QuizControl.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CMan.h">
@@ -95,10 +95,10 @@
     <ClCompile Include="CreateProfileControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AlertControl.cpp">
+    <ClCompile Include="EditProfileControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EditProfileControl.cpp">
+    <ClCompile Include="QuizControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CProject.cpp">
@@ -160,6 +160,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfilesControl.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateProfileControl.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProfileControl.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -106,11 +106,10 @@ namespace Jeopardy {
 			this->NameBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NameBox->ForeColor = System::Drawing::Color::White;
-			this->NameBox->Location = System::Drawing::Point(231, 95);
+			this->NameBox->Location = System::Drawing::Point(263, 93);
 			this->NameBox->Name = L"NameBox";
 			this->NameBox->Size = System::Drawing::Size(287, 26);
 			this->NameBox->TabIndex = 2;
-			this->NameBox->TextChanged += gcnew System::EventHandler(this, &EditProfileControl::textBox1_TextChanged);
 			// 
 			// label1
 			// 
@@ -118,7 +117,7 @@ namespace Jeopardy {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(111, 88);
+			this->label1->Location = System::Drawing::Point(116, 88);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(86, 31);
 			this->label1->TabIndex = 3;
@@ -130,11 +129,11 @@ namespace Jeopardy {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(155, 144);
+			this->label2->Location = System::Drawing::Point(116, 146);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(42, 31);
+			this->label2->Size = System::Drawing::Size(143, 31);
 			this->label2->TabIndex = 5;
-			this->label2->Text = L"ID";
+			this->label2->Text = L"Student ID";
 			// 
 			// IDBox
 			// 
@@ -143,7 +142,7 @@ namespace Jeopardy {
 			this->IDBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IDBox->ForeColor = System::Drawing::Color::White;
-			this->IDBox->Location = System::Drawing::Point(231, 151);
+			this->IDBox->Location = System::Drawing::Point(263, 151);
 			this->IDBox->Name = L"IDBox";
 			this->IDBox->Size = System::Drawing::Size(287, 26);
 			this->IDBox->TabIndex = 4;
@@ -154,7 +153,7 @@ namespace Jeopardy {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(112, 284);
+			this->label3->Location = System::Drawing::Point(116, 270);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(92, 31);
 			this->label3->TabIndex = 9;
@@ -167,7 +166,7 @@ namespace Jeopardy {
 			this->PhoneBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->PhoneBox->ForeColor = System::Drawing::Color::White;
-			this->PhoneBox->Location = System::Drawing::Point(231, 291);
+			this->PhoneBox->Location = System::Drawing::Point(263, 275);
 			this->PhoneBox->Name = L"PhoneBox";
 			this->PhoneBox->Size = System::Drawing::Size(287, 26);
 			this->PhoneBox->TabIndex = 8;
@@ -178,7 +177,7 @@ namespace Jeopardy {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(112, 217);
+			this->label4->Location = System::Drawing::Point(116, 212);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(114, 31);
 			this->label4->TabIndex = 7;
@@ -191,7 +190,7 @@ namespace Jeopardy {
 			this->AddressBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->AddressBox->ForeColor = System::Drawing::Color::White;
-			this->AddressBox->Location = System::Drawing::Point(231, 224);
+			this->AddressBox->Location = System::Drawing::Point(263, 217);
 			this->AddressBox->Name = L"AddressBox";
 			this->AddressBox->Size = System::Drawing::Size(287, 26);
 			this->AddressBox->TabIndex = 6;
@@ -202,7 +201,7 @@ namespace Jeopardy {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(116, 349);
+			this->label6->Location = System::Drawing::Point(116, 325);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(81, 31);
 			this->label6->TabIndex = 11;
@@ -215,7 +214,7 @@ namespace Jeopardy {
 			this->EmailBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EmailBox->ForeColor = System::Drawing::Color::White;
-			this->EmailBox->Location = System::Drawing::Point(231, 356);
+			this->EmailBox->Location = System::Drawing::Point(263, 332);
 			this->EmailBox->Name = L"EmailBox";
 			this->EmailBox->Size = System::Drawing::Size(287, 26);
 			this->EmailBox->TabIndex = 10;
@@ -228,7 +227,7 @@ namespace Jeopardy {
 			this->UpdateButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->UpdateButton->ForeColor = System::Drawing::Color::White;
-			this->UpdateButton->Location = System::Drawing::Point(263, 408);
+			this->UpdateButton->Location = System::Drawing::Point(263, 407);
 			this->UpdateButton->Name = L"UpdateButton";
 			this->UpdateButton->Size = System::Drawing::Size(229, 53);
 			this->UpdateButton->TabIndex = 12;
@@ -277,14 +276,6 @@ namespace Jeopardy {
 
 		}
 #pragma endregion
-	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e) {
-		/*ProfilesControl^ pfcontrol = gcnew ProfilesControl();
-		pfcontrol->Left = 0;
-		pfcontrol->Top = 0;
-		this->Controls->Clear();
-		this->Controls->Add(pfcontrol);*/
-	}
+	private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
