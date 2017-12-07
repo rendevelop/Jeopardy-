@@ -134,6 +134,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CAssessment.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CAssessUnit.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CContactInfo.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CCourseInfo.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CGame.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CMan.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CProject.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CQuestion.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CQuestionPool.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CQuiz.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CSchoolExperience.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CStudent.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\CWorkExperience.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Course Project CPP\JeopardyGame.cpp" />
     <ClCompile Include="CreateProfileControl.cpp" />
     <ClCompile Include="EditProfileControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -143,6 +157,20 @@
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CAssessment.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CAssessUnit.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CContactInfo.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CCourseInfo.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CGame.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CMan.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CProject.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CQuestion.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CQuestionPool.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CQuiz.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CSchoolExperience.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CStudent.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\CWorkExperience.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Course Project CPP\JeopardyGame.h" />
     <ClInclude Include="CreateProfileControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
