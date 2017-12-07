@@ -76,7 +76,6 @@ namespace Jeopardy {
 			this->pictureBox1->Size = System::Drawing::Size(754, 490);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &StartScreenControl::pictureBox1_Click);
 			// 
 			// StartButton
 			// 
@@ -142,18 +141,8 @@ namespace Jeopardy {
 
 		}
 #pragma endregion
-	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e) {
-		// TODO AUTOSAVE DATA
-		Application::Exit();
-	}
-private: System::Void ProfilesButton_Click(System::Object^  sender, System::EventArgs^  e) {
-	/*ProfilesControl ^pfcontrol = gcnew ProfilesControl();
-	pfcontrol->Left = 0;
-	pfcontrol->Top = 0;
-	this->Controls->Clear();
-	this->Controls->Add(pfcontrol);*/
-}
+private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void ProfilesButton_Click(System::Object^  sender, System::EventArgs^  e);
+
 };
 }
