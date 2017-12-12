@@ -26,7 +26,7 @@ public:
     string getName();
     void setName(string name);
     string getID();
-    void setID(string ID);
+    void setID(std::string ID);
     CContactInfo getContact();
     void setContact(CContactInfo contact);
     string getFullInfo();

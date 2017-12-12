@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <ctime>
+#include <sstream>
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -28,26 +29,25 @@ namespace Jeopardy {
 			//TODO: Add the constructor code here
 			//
 
-			std::srand(time(NULL));
-
-			// set up random quiz
+			// set up quiz
+			quiz = new CQuiz();
 			quiz->setTitle("Random Quiz");
-			for (int i = 0; i < 6; i++)
+
+			for (int i = 0; i < COLS; i++)
 			{
 				int points = 100;
-				for (int j = 0; j < 5; j++)
+				for (int j = 0; j < ROWS; j++)
 				{
 					CQuestion question;
-					question.setTitle("Random");
-					question.setAnswer("Random");
+					question.setTitle(std::string("Question Title"));
+					question.setAnswer(std::string("Answer"));
 					question.setPoints(points);
-
-					// set random category
-					int category = std::rand() % 6;
-					question.setQuestionType(i++);
-
+					question.setQuestionType(i+1);
 					question.setID(std::rand() % 1000);
-
+					question.addOption(std::string("Random"));
+					question.addOption(std::string("Answer"));
+					question.addOption(std::string("Option"));
+					question.addOption(std::string("Choice"));
 					// add to quiz
 					quiz->addQuestion(question);
 					points *= 2;
@@ -55,7 +55,38 @@ namespace Jeopardy {
 			}
 
 			// set up the buttons
-			cli::array<Button ^, 2> buttons = gcnew cli::array<Button ^, 2>(6, 5);
+			buttons = gcnew cli::array<Button ^, 2>(ROWS, COLS);
+			int x = 3;
+			for (int i = 0; i < COLS-1; i++)
+			{
+				int y = 71;
+				for (int j = 0; j < ROWS; j++) {
+					CQuestion question = quiz->getQuestion(i * ROWS + j);
+					Int32 cash = Convert::ToInt32(question.getPoints());
+					// Create buttons
+					buttons[i, j] = gcnew System::Windows::Forms::Button();
+					buttons[i, j]->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+					buttons[i, j]->FlatAppearance->BorderSize = 4;
+					buttons[i, j]->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
+					buttons[i, j]->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
+					buttons[i, j]->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+					buttons[i, j]->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						static_cast<System::Byte>(0)));
+					buttons[i, j]->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
+						static_cast<System::Int32>(static_cast<System::Byte>(9)));
+					buttons[i, j]->Location = System::Drawing::Point(234, 342);
+					buttons[i, j]->Size = System::Drawing::Size(130, 77);
+					buttons[i, j]->Left = x;
+					buttons[i, j]->Top = y;
+					buttons[i, j]->TabIndex = 12;
+					buttons[i, j]->Text = L"$" + Convert::ToString(cash);
+					buttons[i, j]->UseVisualStyleBackColor = true;
+					buttons[i, j]->Click += gcnew System::EventHandler(this, &QuizBoardControl::cellBtn_Click);
+					this->Controls->Add(buttons[i, j]);
+					y += 71;
+				}
+				x += 126;
+			}
 
 		}
 
@@ -75,7 +106,11 @@ namespace Jeopardy {
 				delete components;
 			}
 		}
+	private:
+		const int ROWS = 5;
+		const int COLS = 6;
 	private: CQuiz *quiz;
+	private: cli::array<Button ^, 2>^ buttons;
 	private: System::Windows::Forms::Label^  label1;
 	protected:
 	private: System::Windows::Forms::Label^  label2;
@@ -94,11 +129,13 @@ namespace Jeopardy {
 
 
 
-	private: System::Windows::Forms::Button^  button7;
-	private: System::Windows::Forms::Button^  button8;
+
+
 	private: System::Windows::Forms::Button^  button9;
-	private: System::Windows::Forms::Button^  button10;
-	private: System::Windows::Forms::Button^  button11;
+private: System::Windows::Forms::Button^  button1;
+
+
+
 
 
 	protected:
@@ -129,11 +166,8 @@ namespace Jeopardy {
 			this->Category4Button = (gcnew System::Windows::Forms::Button());
 			this->Category5Button = (gcnew System::Windows::Forms::Button());
 			this->Category6Button = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->button10 = (gcnew System::Windows::Forms::Button());
-			this->button11 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -149,7 +183,6 @@ namespace Jeopardy {
 			// label2
 			// 
 			this->label2->BackColor = System::Drawing::Color::Black;
-			this->label2->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->label2->Location = System::Drawing::Point(0, 444);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(754, 46);
@@ -251,7 +284,7 @@ namespace Jeopardy {
 			this->Category4Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Category4Button->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
 				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->Category4Button->Location = System::Drawing::Point(380, 0);
+			this->Category4Button->Location = System::Drawing::Point(381, 0);
 			this->Category4Button->Name = L"Category4Button";
 			this->Category4Button->Size = System::Drawing::Size(130, 77);
 			this->Category4Button->TabIndex = 8;
@@ -267,7 +300,7 @@ namespace Jeopardy {
 			this->Category5Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Category5Button->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
 				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->Category5Button->Location = System::Drawing::Point(506, 0);
+			this->Category5Button->Location = System::Drawing::Point(507, 0);
 			this->Category5Button->Name = L"Category5Button";
 			this->Category5Button->Size = System::Drawing::Size(130, 77);
 			this->Category5Button->TabIndex = 9;
@@ -283,48 +316,12 @@ namespace Jeopardy {
 			this->Category6Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Category6Button->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
 				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->Category6Button->Location = System::Drawing::Point(624, 0);
+			this->Category6Button->Location = System::Drawing::Point(633, 0);
 			this->Category6Button->Name = L"Category6Button";
 			this->Category6Button->Size = System::Drawing::Size(130, 77);
 			this->Category6Button->TabIndex = 10;
 			this->Category6Button->Text = L"CATEGORY6";
 			this->Category6Button->UseVisualStyleBackColor = true;
-			// 
-			// button7
-			// 
-			this->button7->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button7->FlatAppearance->BorderSize = 4;
-			this->button7->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button7->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
-			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
-				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->button7->Location = System::Drawing::Point(3, 71);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(130, 77);
-			this->button7->TabIndex = 11;
-			this->button7->Text = L"$100";
-			this->button7->UseVisualStyleBackColor = true;
-			// 
-			// button8
-			// 
-			this->button8->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button8->FlatAppearance->BorderSize = 4;
-			this->button8->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button8->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
-			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
-				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->button8->Location = System::Drawing::Point(3, 145);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(130, 77);
-			this->button8->TabIndex = 12;
-			this->button8->Text = L"$100";
-			this->button8->UseVisualStyleBackColor = true;
 			// 
 			// button9
 			// 
@@ -343,42 +340,26 @@ namespace Jeopardy {
 			this->button9->TabIndex = 13;
 			this->button9->Text = L"$100";
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Visible = false;
 			// 
-			// button10
+			// button1
 			// 
-			this->button10->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button10->FlatAppearance->BorderSize = 4;
-			this->button10->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button10->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
-			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+			this->button1->FlatAppearance->BorderSize = 4;
+			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
+			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
 				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->button10->Location = System::Drawing::Point(3, 291);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(130, 77);
-			this->button10->TabIndex = 14;
-			this->button10->Text = L"$100";
-			this->button10->UseVisualStyleBackColor = true;
-			// 
-			// button11
-			// 
-			this->button11->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button11->FlatAppearance->BorderSize = 4;
-			this->button11->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button11->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
-			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
-				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->button11->Location = System::Drawing::Point(3, 364);
-			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(130, 77);
-			this->button11->TabIndex = 15;
-			this->button11->Text = L"$100";
-			this->button11->UseVisualStyleBackColor = true;
+			this->button1->Location = System::Drawing::Point(3, 71);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(130, 77);
+			this->button1->TabIndex = 14;
+			this->button1->Text = L"$100";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Visible = false;
 			// 
 			// QuizBoardControl
 			// 
@@ -386,11 +367,8 @@ namespace Jeopardy {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(3)),
 				static_cast<System::Int32>(static_cast<System::Byte>(92)));
-			this->Controls->Add(this->button11);
-			this->Controls->Add(this->button10);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button9);
-			this->Controls->Add(this->button8);
-			this->Controls->Add(this->button7);
 			this->Controls->Add(this->Category6Button);
 			this->Controls->Add(this->Category5Button);
 			this->Controls->Add(this->Category4Button);
@@ -410,5 +388,10 @@ namespace Jeopardy {
 
 		}
 #pragma endregion
-	};
+private:
+	System::Void cellBtn_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		std::cout << "Clicked";
+	}
+};
 }

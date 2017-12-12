@@ -52,7 +52,7 @@ void CAssessment::removeAssessmentUnit(int index)
 
 int CAssessment::getNumOfAssessmentUnits()
 {
-	return assessList->size();
+	return static_cast<int>(assessList->size());
 }
 
 CStudent *CAssessment::getStudent()

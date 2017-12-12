@@ -6,12 +6,11 @@
 #ifndef _CCONTACTINFO_H
 #define _CCONTACTINFO_H
 
-#include "CStudent.h"
 #include <iostream>
 
 using namespace std;
 
-class CContactInfo : CStudent {
+class CContactInfo {
 public: 
 	CContactInfo(string address, string phone, string email);
 	CContactInfo(CContactInfo * another);

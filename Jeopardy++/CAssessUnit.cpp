@@ -21,7 +21,7 @@ CAssessUnit::CAssessUnit(CAssessUnit * another) {
 }
 
 void CAssessUnit::operator=(CAssessUnit * another) {
-	CAssessUnit(another);
+	CAssessUnit::CAssessUnit(another);
 }
 
 CQuestion CAssessUnit::getQuestion() {

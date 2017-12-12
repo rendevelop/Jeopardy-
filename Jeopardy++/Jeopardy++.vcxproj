@@ -151,7 +151,6 @@
     <ClCompile Include="EditProfileControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ProfilesControl.cpp" />
-    <ClCompile Include="QuestionButton.cpp" />
     <ClCompile Include="QuizBoardControl.cpp" />
     <ClCompile Include="QuizControl.cpp" />
     <ClCompile Include="StartScreenControl.cpp" />

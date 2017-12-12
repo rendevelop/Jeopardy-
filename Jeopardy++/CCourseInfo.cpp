@@ -7,7 +7,7 @@
 
 CCourseInfo::CCourseInfo(string name, string ID) {
 	this->courseName = name;
-	this->courseID = ID
+	this->courseID = ID;
 }
 
 string CCourseInfo::getCourseName() {

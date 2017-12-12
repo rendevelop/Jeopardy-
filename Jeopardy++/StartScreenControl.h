@@ -91,6 +91,7 @@ namespace Jeopardy {
 			this->StartButton->TabIndex = 1;
 			this->StartButton->Text = L"Start Game";
 			this->StartButton->UseVisualStyleBackColor = false;
+			this->StartButton->Click += gcnew System::EventHandler(this, &StartScreenControl::StartButton_Click);
 			// 
 			// ProfilesButton
 			// 
@@ -143,6 +144,6 @@ namespace Jeopardy {
 #pragma endregion
 private: System::Void ExitButton_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void ProfilesButton_Click(System::Object^  sender, System::EventArgs^  e);
-
+private: System::Void StartButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

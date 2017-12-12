@@ -17,7 +17,7 @@ CStudent::CStudent()
 
 CStudent::CStudent(string name, string ID)
 {
-	this->name = name
+	this->name = name;
 }
 
 CStudent::~CStudent() {};
@@ -54,7 +54,7 @@ void CStudent::setContact(CContactInfo contact)
 
 string CStudent::getFullInfo()
 {
-	
+	return "";
 }
 
 string CStudent::toString()

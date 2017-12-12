@@ -1,9 +1,13 @@
 
 #include "CQuestion.h"
 #include <iostream>
+#include <sstream>
 
+CQuestion::CQuestion()
+{
+}
 
-CQuestion::CQuestion(string title, int points) 
+CQuestion::CQuestion(string title, int points)
 {
 	this->title = title;
 	this->points = points;
@@ -23,6 +27,7 @@ CQuestion::CQuestion(CQuestion *another)
 	this->questionType = another->questionType;
 	this->options = another->options;
 }
+
 CQuestion::~CQuestion() {};
 
 string CQuestion::getTitle()
@@ -111,12 +116,25 @@ void CQuestion::setQuestionType(int type)
 
 void CQuestion::operator=(CQuestion *another)
 {
-	CQuestion(another);
+	CQuestion::CQuestion(another);
 }
 
 string CQuestion::toString()
 {
 	// TODO convert ID, conceptID, and questionType to string
+	ostringstream ss;
+	ss << ID;
+	string ID = ss.str();
+	ss.str(string(""));
+	ss.clear();
+	ss << points;
+	string points = ss.str();
+	ss.str(string(""));
+	ss.clear();
+	ss << questionType;
+	string questionType = ss.str();
+
+
 	string str = "Question Title: " + title + '\n'
 		+ "Question Description: " + description + '\n'
 		+ "Question ID: " + ID + '\n'

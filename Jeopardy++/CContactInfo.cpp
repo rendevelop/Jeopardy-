@@ -54,5 +54,5 @@ string CContactInfo::toString() {
 }
 
 void CContactInfo::operator=(CContactInfo * another) {
-	CContactInfo(another);
+	CContactInfo::CContactInfo(another);
 }

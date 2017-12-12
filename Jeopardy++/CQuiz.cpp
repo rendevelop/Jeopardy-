@@ -1,7 +1,10 @@
 #include "CQuiz.h"
 
 
-CQuiz::CQuiz() {};
+CQuiz::CQuiz() 
+{
+	questions = new list<CQuestion>();
+};
 
 
 CQuiz::CQuiz(CQuiz *another) {
@@ -9,7 +12,12 @@ CQuiz::CQuiz(CQuiz *another) {
 
 	this->title = another->title;
 
-	if (questions != 0) questions->clear();
+	if (questions != 0) {
+		questions->clear();
+	}
+	else {
+		questions = new list<CQuestion>();
+	}
 
 	// copy questions from another
 	for (auto itr = another->questions->begin(); itr != another->questions->end(); ++itr)
@@ -61,7 +69,7 @@ string CQuiz::toString() {
 	string str = title + '\n';
 	for (auto itr = questions->begin(); itr != questions->end(); ++itr)
 	{
-		str += itr->toString() + '\n\n';
+		str += itr->toString() + "\n\n";
 	}
 	return str;
 }
