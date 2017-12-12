@@ -151,7 +151,8 @@
     <ClCompile Include="EditProfileControl.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ProfilesControl.cpp" />
-    <ClCompile Include="QuestionControl.cpp" />
+    <ClCompile Include="QuestionButton.cpp" />
+    <ClCompile Include="QuizBoardControl.cpp" />
     <ClCompile Include="QuizControl.cpp" />
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
@@ -184,6 +185,9 @@
     <ClInclude Include="QuestionControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="QuizBoardControl.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="QuizControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -206,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuestionControl.resx">
       <DependentUpon>QuestionControl.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizBoardControl.resx">
+      <DependentUpon>QuizBoardControl.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuizControl.resx">
       <DependentUpon>QuizControl.h</DependentUpon>

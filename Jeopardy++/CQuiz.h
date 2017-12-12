@@ -12,6 +12,7 @@ class CQuiz
 {
 private:
 	list<CQuestion> *questions;
+	list<string> categories;
 	string title;
 
 public:

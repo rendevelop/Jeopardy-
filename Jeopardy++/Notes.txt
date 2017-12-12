@@ -37,6 +37,6 @@ TODO:
 	- Exit
 
 
-- JeopardyGame Control
-	- Choose Quiz Type
+-QuizBoard
+	- 6 categories, 5 questions per category maximum
 	- 

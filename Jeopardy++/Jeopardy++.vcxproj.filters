@@ -75,12 +75,12 @@
     <ClInclude Include="CWorkExperience.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="QuizBoardControl.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QuestionControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StartScreenControl.cpp">
@@ -135,6 +135,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CWorkExperience.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuizBoardControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
