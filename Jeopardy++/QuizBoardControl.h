@@ -2,9 +2,6 @@
 
 #include "CQuiz.h"
 #include <iostream>
-#include <random>
-#include <ctime>
-#include <sstream>
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -13,9 +10,7 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-
 namespace Jeopardy {
-
 	/// <summary>
 	/// Summary for QuizBoardControl
 	/// </summary>
@@ -56,6 +51,7 @@ namespace Jeopardy {
 
 			// set up the buttons
 			buttons = gcnew cli::array<Button ^, 2>(COLS, ROWS);
+			buttons_visibility = gcnew cli::array<bool, 2>(COLS, ROWS);
 			int x = 3;
 			for (int i = 0; i < COLS; i++)
 			{
@@ -75,14 +71,15 @@ namespace Jeopardy {
 						static_cast<System::Byte>(0)));
 					buttons[i, j]->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
 						static_cast<System::Int32>(static_cast<System::Byte>(9)));
-					buttons[i, j]->Location = System::Drawing::Point(234, 342);
 					buttons[i, j]->Size = System::Drawing::Size(130, 77);
 					buttons[i, j]->Left = x;
 					buttons[i, j]->Top = y;
 					buttons[i, j]->TabIndex = 12;
 					buttons[i, j]->Text = L"$" + Convert::ToString(cash);
 					buttons[i, j]->UseVisualStyleBackColor = true;
+					buttons[i, j]->Tag = gcnew Int32(i * ROWS + j);
 					buttons[i, j]->Click += gcnew System::EventHandler(this, &QuizBoardControl::cellBtn_Click);
+					buttons_visibility[i, j] = true; // set all visibility to true by default
 					this->Controls->Add(buttons[i, j]);
 					y += 71;
 				}
@@ -110,8 +107,11 @@ namespace Jeopardy {
 	private:
 		const int ROWS = 5;
 		const int COLS = 6;
+		int points = 0;
+		array<Button^>^ choices;
 	private: CQuiz *quiz;
 	private: cli::array<Button ^, 2>^ buttons;
+			 cli::array<bool, 2>^ buttons_visibility;
 	private: System::Windows::Forms::Label^  label1;
 	protected:
 	private: System::Windows::Forms::Label^  label2;
@@ -124,6 +124,7 @@ namespace Jeopardy {
 	private: System::Windows::Forms::Button^  Category4Button;
 	private: System::Windows::Forms::Button^  Category5Button;
 	private: System::Windows::Forms::Button^  Category6Button;
+	private: System::Windows::Forms::Label^  QuestionTitleLabel;
 
 
 
@@ -132,8 +133,12 @@ namespace Jeopardy {
 
 
 
-	private: System::Windows::Forms::Button^  button9;
-private: System::Windows::Forms::Button^  button1;
+
+
+
+
+
+
 
 
 
@@ -167,8 +172,7 @@ private: System::Windows::Forms::Button^  button1;
 			this->Category4Button = (gcnew System::Windows::Forms::Button());
 			this->Category5Button = (gcnew System::Windows::Forms::Button());
 			this->Category6Button = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->QuestionTitleLabel = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -231,6 +235,7 @@ private: System::Windows::Forms::Button^  button1;
 			this->PointsValueLabel->Size = System::Drawing::Size(44, 31);
 			this->PointsValueLabel->TabIndex = 4;
 			this->PointsValueLabel->Text = L"$0";
+			this->PointsValueLabel->TextChanged += gcnew System::EventHandler(this, &QuizBoardControl::PointsValueLabel_TextChanged);
 			// 
 			// Category1Button
 			// 
@@ -328,43 +333,22 @@ private: System::Windows::Forms::Button^  button1;
 			this->Category6Button->Text = L"CATEGORY6";
 			this->Category6Button->UseVisualStyleBackColor = true;
 			// 
-			// button9
+			// QuestionTitleLabel
 			// 
-			this->button9->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button9->FlatAppearance->BorderSize = 4;
-			this->button9->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button9->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
-			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->QuestionTitleLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
-				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->button9->Location = System::Drawing::Point(3, 218);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(130, 77);
-			this->button9->TabIndex = 13;
-			this->button9->Text = L"$100";
-			this->button9->UseVisualStyleBackColor = true;
-			this->button9->Visible = false;
-			// 
-			// button1
-			// 
-			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->button1->FlatAppearance->BorderSize = 4;
-			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
-				static_cast<System::Int32>(static_cast<System::Byte>(9)));
-			this->button1->Location = System::Drawing::Point(3, 71);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(130, 77);
-			this->button1->TabIndex = 14;
-			this->button1->Text = L"$100";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Visible = false;
+			this->QuestionTitleLabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)),
+				static_cast<System::Int32>(static_cast<System::Byte>(221)), static_cast<System::Int32>(static_cast<System::Byte>(9)));
+			this->QuestionTitleLabel->Location = System::Drawing::Point(0, 0);
+			this->QuestionTitleLabel->MaximumSize = System::Drawing::Size(751, 200);
+			this->QuestionTitleLabel->MinimumSize = System::Drawing::Size(751, 77);
+			this->QuestionTitleLabel->Name = L"QuestionTitleLabel";
+			this->QuestionTitleLabel->Size = System::Drawing::Size(751, 200);
+			this->QuestionTitleLabel->TabIndex = 11;
+			this->QuestionTitleLabel->Text = L"What is the Name of\?What is the Name of\?What is the Name of\?What is the Name of\?W"
+				L"hat is the Name of\?What is the Name of\?";
+			this->QuestionTitleLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->QuestionTitleLabel->Visible = false;
 			// 
 			// QuizBoardControl
 			// 
@@ -372,8 +356,7 @@ private: System::Windows::Forms::Button^  button1;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(3)),
 				static_cast<System::Int32>(static_cast<System::Byte>(92)));
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->button9);
+			this->Controls->Add(this->QuestionTitleLabel);
 			this->Controls->Add(this->Category6Button);
 			this->Controls->Add(this->Category5Button);
 			this->Controls->Add(this->Category4Button);
@@ -394,9 +377,8 @@ private: System::Windows::Forms::Button^  button1;
 		}
 #pragma endregion
 private:
-	System::Void cellBtn_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		std::cout << "Clicked";
-	}
+	System::Void cellBtn_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void choiceBtn_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void PointsValueLabel_TextChanged(System::Object^  sender, System::EventArgs^  e);
 };
 }
