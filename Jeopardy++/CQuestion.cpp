@@ -7,7 +7,7 @@ CQuestion::CQuestion()
 {
 }
 
-CQuestion::CQuestion(string title, int points)
+CQuestion::CQuestion(std::string title, int points)
 {
 	this->title = title;
 	this->points = points;
@@ -30,56 +30,56 @@ CQuestion::CQuestion(CQuestion *another)
 
 CQuestion::~CQuestion() {};
 
-string CQuestion::getTitle()
+std::string CQuestion::getTitle()
 {
 	return title;
 }
 
-void CQuestion::setTitle(string title)
+void CQuestion::setTitle(std::string title)
 {
 	this->title = title;
 }
 
-string CQuestion::getDescription()
+std::string CQuestion::getDescription()
 {
 	return description;
 }
 
-void CQuestion::setDescription(string desc)
+void CQuestion::setDescription(std::string desc)
 {
 	this->description = desc;
 }
 
-int CQuestion::getNumOfOption()
+size_t CQuestion::getNumOfOption()
 {
 	return options.size();
 }
 
-string CQuestion::getOption(int index)
+std::string CQuestion::getOption(int index)
 {
 	auto itr = options.begin();
 	advance(itr, index);
 	return *itr;
 }
 
-void CQuestion::addOption(string option)
+void CQuestion::addOption(std::string option)
 {
 	options.push_back(option);
 }
 
-void CQuestion::setOption(int index, string option)
+void CQuestion::setOption(int index, std::string option)
 {
 	auto itr = options.begin();
 	advance(itr, index);
 	options.insert(itr, option);
 }
 
-string CQuestion::getAnswer()
+std::string CQuestion::getAnswer()
 {
 	return answer;
 }
 
-void CQuestion::setAnswer(string answer)
+void CQuestion::setAnswer(std::string answer)
 {
 	this->answer = answer;
 }
@@ -94,12 +94,12 @@ void CQuestion::setPoints(int points)
 	this->points = points;
 }
 
-string CQuestion::getExplanation()
+std::string CQuestion::getExplanation()
 {
 	return explanation;
 }
 
-void CQuestion::setExplanation(string expl)
+void CQuestion::setExplanation(std::string expl)
 {
 	this->explanation = expl;
 }
@@ -119,23 +119,23 @@ void CQuestion::operator=(CQuestion *another)
 	CQuestion::CQuestion(another);
 }
 
-string CQuestion::toString()
+std::string CQuestion::toString()
 {
-	// TODO convert ID, conceptID, and questionType to string
-	ostringstream ss;
+	// TODO convert ID, conceptID, and questionType to std::string
+	std::ostringstream ss;
 	ss << ID;
-	string ID = ss.str();
-	ss.str(string(""));
+	std::string ID = ss.str();
+	ss.str(std::string(""));
 	ss.clear();
 	ss << points;
-	string points = ss.str();
-	ss.str(string(""));
+	std::string points = ss.str();
+	ss.str(std::string(""));
 	ss.clear();
 	ss << questionType;
-	string questionType = ss.str();
+	std::string questionType = ss.str();
 
 
-	string str = "Question Title: " + title + '\n'
+	std::string str = "Question Title: " + title + '\n'
 		+ "Question Description: " + description + '\n'
 		+ "Question ID: " + ID + '\n'
 		+ "Question Points: " + points + '\n'
@@ -163,12 +163,12 @@ bool CQuestion::isEqual(CQuestion question)
 
 	return equal;
 }
-string CQuestion::getConceptID()
+std::string CQuestion::getConceptID()
 {
 	return conceptID;
 }
 
-void CQuestion::setConceptID(string concept)
+void CQuestion::setConceptID(std::string concept)
 {
 	this->conceptID = concept;
 }

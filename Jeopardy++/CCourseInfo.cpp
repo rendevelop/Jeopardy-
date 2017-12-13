@@ -5,35 +5,35 @@
 
 #include "CCourseInfo.h"
 
-CCourseInfo::CCourseInfo(string name, string ID) {
+CCourseInfo::CCourseInfo(std::string name, std::string ID) {
 	this->courseName = name;
 	this->courseID = ID;
 }
 
-string CCourseInfo::getCourseName() {
+std::string CCourseInfo::getCourseName() {
     return courseName;
 }
 
-void CCourseInfo::setCourseName(string name) {
+void CCourseInfo::setCourseName(std::string name) {
 	this->courseName = name;
 }
 
-string CCourseInfo::getCourseID() {
+std::string CCourseInfo::getCourseID() {
 	return courseID;
 }
 
-void CCourseInfo::setCourseID(string ID) {
+void CCourseInfo::setCourseID(std::string ID) {
 	this->courseID = ID;
 }
 
-list<string> CCourseInfo::getCompetencyList() {
+std::list<std::string> CCourseInfo::getCompetencyList() {
     return this->competencyList;
 }
 
-void CCourseInfo::setCompetencyList(list<string> list) {
+void CCourseInfo::setCompetencyList(std::list<std::string> list) {
     this->competencyList = list;
 }
 
-string CCourseInfo::toString() {
+std::string CCourseInfo::toString() {
 	return "Course Name: " + courseName + '\n' + "Course ID: " + courseID;
 }

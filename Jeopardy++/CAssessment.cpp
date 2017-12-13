@@ -5,7 +5,7 @@
 #include "CAssessment.h"
 #include <string>
 
-using namespace std;
+
 
 /**
 * CAssessment implementation
@@ -15,7 +15,7 @@ using namespace std;
 CAssessment::CAssessment(CStudent *student)
 {
 	this->student = student;
-	this->assessList = new list<CAssessUnit>();
+	this->assessList = new std::list<CAssessUnit>();
 }
 
 CAssessment::~CAssessment()

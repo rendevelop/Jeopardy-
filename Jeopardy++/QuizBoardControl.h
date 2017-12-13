@@ -55,12 +55,13 @@ namespace Jeopardy {
 			}
 
 			// set up the buttons
-			buttons = gcnew cli::array<Button ^, 2>(ROWS, COLS);
+			buttons = gcnew cli::array<Button ^, 2>(COLS, ROWS);
 			int x = 3;
-			for (int i = 0; i < COLS-1; i++)
+			for (int i = 0; i < COLS; i++)
 			{
 				int y = 71;
 				for (int j = 0; j < ROWS; j++) {
+					System::Diagnostics::Debug::WriteLine("ROW: " + j + " COL: " + i + " INDEX: " + (i*ROWS + j));
 					CQuestion question = quiz->getQuestion(i * ROWS + j);
 					Int32 cash = Convert::ToInt32(question.getPoints());
 					// Create buttons
@@ -182,6 +183,7 @@ private: System::Windows::Forms::Button^  button1;
 			// 
 			// label2
 			// 
+			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->label2->BackColor = System::Drawing::Color::Black;
 			this->label2->Location = System::Drawing::Point(0, 444);
 			this->label2->Name = L"label2";
@@ -190,6 +192,7 @@ private: System::Windows::Forms::Button^  button1;
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox1->BackColor = System::Drawing::Color::Black;
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
@@ -203,6 +206,7 @@ private: System::Windows::Forms::Button^  button1;
 			// 
 			// label3
 			// 
+			this->label3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->label3->AutoSize = true;
 			this->label3->BackColor = System::Drawing::Color::Black;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -216,6 +220,7 @@ private: System::Windows::Forms::Button^  button1;
 			// 
 			// PointsValueLabel
 			// 
+			this->PointsValueLabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->PointsValueLabel->AutoSize = true;
 			this->PointsValueLabel->BackColor = System::Drawing::Color::Black;
 			this->PointsValueLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,

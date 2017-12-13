@@ -3,7 +3,7 @@
 
 CQuiz::CQuiz() 
 {
-	questions = new list<CQuestion>();
+	questions = new std::list<CQuestion>();
 };
 
 
@@ -16,7 +16,7 @@ CQuiz::CQuiz(CQuiz *another) {
 		questions->clear();
 	}
 	else {
-		questions = new list<CQuestion>();
+		questions = new std::list<CQuestion>();
 	}
 
 	// copy questions from another
@@ -65,8 +65,8 @@ void CQuiz::updateQuestion(int index, CQuestion question) {
 }
 
 
-string CQuiz::toString() {
-	string str = title + '\n';
+std::string CQuiz::toString() {
+	std::string str = title + '\n';
 	for (auto itr = questions->begin(); itr != questions->end(); ++itr)
 	{
 		str += itr->toString() + "\n\n";
@@ -75,11 +75,11 @@ string CQuiz::toString() {
 }
 
 
-string CQuiz::getTitle() {
+std::string CQuiz::getTitle() {
 	return title;
 }
 
 
-void CQuiz::setTitle(string title) {
+void CQuiz::setTitle(std::string title) {
 	this->title = title;
 }

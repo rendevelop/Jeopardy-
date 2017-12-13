@@ -20,7 +20,7 @@ public:
 	void setStudent(CStudent *student);
 
 private:
-	list<CAssessUnit> *assessList;
+	std::list<CAssessUnit> *assessList;
 	CStudent *student;
 
 };

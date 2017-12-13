@@ -5,13 +5,13 @@
 
 #include "CSchoolExperience.h"
 
-CSchoolExperience::CSchoolExperience(string school, time_t sDate, time_t eDate) {
+CSchoolExperience::CSchoolExperience(std::string school, time_t sDate, time_t eDate) {
 	this->schoolName = school;
 	this->startDate = sDate;
 	this->endDate = eDate;
 }
 
-string CSchoolExperience::getSchoolName() {
+std::string CSchoolExperience::getSchoolName() {
     return schoolName;
 }
 
@@ -23,7 +23,7 @@ time_t CSchoolExperience::getEndDate() {
     return NULL;
 }
 
-void CSchoolExperience::setSchoolName(string school) {
+void CSchoolExperience::setSchoolName(std::string school) {
     this->schoolName = school;
 }
 
@@ -35,22 +35,22 @@ void CSchoolExperience::setEndDate(time_t eDate) {
     return;
 }
 
-string CSchoolExperience::getMajor() {
+std::string CSchoolExperience::getMajor() {
     return "";
 }
 
-void CSchoolExperience::setMajor(string major) {
+void CSchoolExperience::setMajor(std::string major) {
     return;
 }
 
-string CSchoolExperience::getDegree() {
+std::string CSchoolExperience::getDegree() {
     return "";
 }
 
-void CSchoolExperience::setDegree(string degree) {
+void CSchoolExperience::setDegree(std::string degree) {
     return;
 }
 
-string CSchoolExperience::toString() {
+std::string CSchoolExperience::toString() {
     return "";
 }

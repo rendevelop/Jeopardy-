@@ -9,28 +9,26 @@
 #include "CContactInfo.h"
 #include <iostream>
 
-using namespace std;
-
 class CStudent {
 
 private:
-	string name;
-	string ID;
+	std::string name;
+	std::string ID;
 	CContactInfo contactInfo;
 
 public: 
 	CStudent();
-	CStudent(string name, string ID);
+	CStudent(std::string name, std::string ID);
 	~CStudent();
 
-    string getName();
-    void setName(string name);
-    string getID();
+    std::string getName();
+    void setName(std::string name);
+    std::string getID();
     void setID(std::string ID);
     CContactInfo getContact();
     void setContact(CContactInfo contact);
-    string getFullInfo();
-	string toString();
+    std::string getFullInfo();
+	std::string toString();
 
 };
 

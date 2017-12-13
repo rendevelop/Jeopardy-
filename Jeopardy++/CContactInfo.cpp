@@ -11,7 +11,7 @@ CContactInfo::CContactInfo() {
 	this->email = "";
 }
 
-CContactInfo::CContactInfo(string address, string phone, string email) {
+CContactInfo::CContactInfo(std::string address, std::string phone, std::string email) {
 	this->address = address;
 	this->phone = phone;
 	this->email = email;
@@ -25,31 +25,31 @@ CContactInfo::CContactInfo(CContactInfo * another) {
 	this->email = another->email;
 }
 
-string CContactInfo::getAddress() {
+std::string CContactInfo::getAddress() {
     return address;
 }
 
-string CContactInfo::getPhone() {
+std::string CContactInfo::getPhone() {
     return phone;
 }
 
-string CContactInfo::getEmail() {
+std::string CContactInfo::getEmail() {
     return email;
 }
 
-void CContactInfo::setAddress(string address) {
+void CContactInfo::setAddress(std::string address) {
     this->address = address;
 }
 
-void CContactInfo::setPhone(string phone) {
+void CContactInfo::setPhone(std::string phone) {
     this->phone = phone;
 }
 
-void CContactInfo::setEmail(string email) {
+void CContactInfo::setEmail(std::string email) {
     this->email = email;
 }
 
-string CContactInfo::toString() {
+std::string CContactInfo::toString() {
     return "Address: " + address + '\n' + "Phone: " + phone + '\n' + "Email: " + email;
 }
 

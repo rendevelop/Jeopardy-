@@ -9,25 +9,25 @@
 #include "CStudent.h"
 #include <list>
 
-using namespace std;
+
 
 class CCourseInfo : CStudent {
 public: 
-    CCourseInfo(string name, string ID);
+    CCourseInfo(std::string name, std::string ID);
     
-    string getCourseName();
-    void setCourseName(string name);
-    string getCourseID();
-    void setCourseID(string ID);
-    string toString();
-    list<string> getCompetencyList();
-    void setCompetencyList(list<string> list);
+    std::string getCourseName();
+    void setCourseName(std::string name);
+    std::string getCourseID();
+    void setCourseID(std::string ID);
+    std::string toString();
+    std::list<std::string> getCompetencyList();
+    void setCompetencyList(std::list<std::string> list);
 
 private: 
-    string courseName;
-    string courseID;
-    string description;
-	list<string> competencyList;
+    std::string courseName;
+    std::string courseID;
+    std::string description;
+	std::list<std::string> competencyList;
 };
 
 #endif //_CCOURSEINFO_H

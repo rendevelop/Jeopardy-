@@ -19,13 +19,13 @@ public:
     void setQuestion(CQuestion question);
     double getScore();
     void setScore(double score);
-    string getAnswer();
-    void setAnswer(string answer);
+    std::string getAnswer();
+    void setAnswer(std::string answer);
 
 private: 
     CQuestion question;
     double score;
-    string answer;
+    std::string answer;
 };
 
 #endif //_CASSESSUNIT_H

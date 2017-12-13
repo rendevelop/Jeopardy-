@@ -12,8 +12,8 @@
 
 class CMan {
 public: 
-    list<CStudent> stuPool;
-    list<CGame> gamePool;
+    std::list<CStudent> stuPool;
+    std::list<CGame> gamePool;
 };
 
 #endif //_CMAN_H

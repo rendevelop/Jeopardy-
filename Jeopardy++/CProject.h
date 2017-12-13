@@ -10,35 +10,35 @@
 #include <iostream>
 #include <ctime>
 
-using namespace std;
+
 
 class CProject {
 
 public: 
     
-    CProject(string title, string description, time_t start, time_t end, string role, list<string> responsibilities);
+    CProject(std::string title, std::string description, time_t start, time_t end, std::string role, std::list<std::string> responsibilities);
     
-    string getPrjTitle();
-    void setPrjTitle(string title);
-    string getPrjDescription();
-    void setPrjDescription(string description);
+    std::string getPrjTitle();
+    void setPrjTitle(std::string title);
+    std::string getPrjDescription();
+    void setPrjDescription(std::string description);
     time_t getStart();
     void setStart(time_t start);
     time_t getEnd();
     void setEnd(time_t end);
-    string getRole();
-    void setRole(string role);
-    list<string> getResponsbilities();
-    void setResponsibilities(list<string> resp);
-    string toString();
+    std::string getRole();
+    void setRole(std::string role);
+    std::list<std::string> getResponsbilities();
+    void setResponsibilities(std::list<std::string> resp);
+    std::string toString();
 
 private: 
-    string projectTitle;
-    string projectDescription;
+    std::string projectTitle;
+    std::string projectDescription;
     time_t startDate;
     time_t endDate;
-    string role;
-    list<string> responsibilities;
+    std::string role;
+    std::list<std::string> responsibilities;
 };
 
 #endif //_CPROJECT_H

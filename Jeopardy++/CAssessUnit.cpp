@@ -40,10 +40,10 @@ void CAssessUnit::setScore(double score) {
 	this->score = score;
 }
 
-string CAssessUnit::getAnswer() {
+std::string CAssessUnit::getAnswer() {
 	return answer;
 }
 
-void CAssessUnit::setAnswer(string answer) {
+void CAssessUnit::setAnswer(std::string answer) {
 	this->answer = answer;
 }

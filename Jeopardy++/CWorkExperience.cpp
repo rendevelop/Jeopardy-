@@ -5,7 +5,7 @@
 
 #include "CWorkExperience.h"
 
-CWorkExperience::CWorkExperience(string company, time_t start, time_t end, string role, list<CProject> projects) {
+CWorkExperience::CWorkExperience(std::string company, time_t start, time_t end, std::string role, std::list<CProject> projects) {
 	this->companyName = company;
 	this->startDate = start;
 	this->endDate = end;
@@ -13,11 +13,11 @@ CWorkExperience::CWorkExperience(string company, time_t start, time_t end, strin
 	this->projects = projects;
 }
 
-string CWorkExperience::getCompanyName() {
+std::string CWorkExperience::getCompanyName() {
     return "";
 }
 
-void CWorkExperience::setCompanyName(string company) {
+void CWorkExperience::setCompanyName(std::string company) {
 
 }
 
@@ -37,22 +37,22 @@ void CWorkExperience::setEndDate(time_t end) {
     return;
 }
 
-string CWorkExperience::getRole() {
+std::string CWorkExperience::getRole() {
     return "";
 }
 
-void CWorkExperience::setRole(string role) {
+void CWorkExperience::setRole(std::string role) {
     return;
 }
 
-list<CProject> CWorkExperience::getProjects() {
+std::list<CProject> CWorkExperience::getProjects() {
     return projects;
 }
 
-void CWorkExperience::setProjects(list<CProject> projects) {
+void CWorkExperience::setProjects(std::list<CProject> projects) {
     return;
 }
 
-string CWorkExperience::toString() {
+std::string CWorkExperience::toString() {
     return "";
 }

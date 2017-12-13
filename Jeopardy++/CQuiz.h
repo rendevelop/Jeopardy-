@@ -6,14 +6,14 @@
 #include<string>
 #include <list>
 
-using namespace std;
+
 
 class CQuiz
 {
 private:
-	list<CQuestion> *questions;
-	list<string> categories;
-	string title;
+	std::list<CQuestion> *questions;
+	std::list<std::string> categories;
+	std::string title;
 
 public:
 	CQuiz();
@@ -24,9 +24,9 @@ public:
 	void addQuestion(CQuestion question);
 	void removeQuestion(int index);
 	void updateQuestion(int index, CQuestion question);
-	string toString();
-	string getTitle();
-	void setTitle(string title);
+	std::string toString();
+	std::string getTitle();
+	void setTitle(std::string title);
 
 };
 

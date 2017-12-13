@@ -9,30 +9,28 @@
 #include <ctime>
 #include <iostream>
 
-using namespace std;
-
 class CSchoolExperience {
 public: 
-	CSchoolExperience(string school, time_t sDate, time_t eDate);
+	CSchoolExperience(std::string school, time_t sDate, time_t eDate);
 
-    string getSchoolName();
+    std::string getSchoolName();
     time_t getStartDate();
     time_t getEndDate();
-    void setSchoolName(string school);
+    void setSchoolName(std::string school);
     void setStartDate(time_t sDate);
     void setEndDate(time_t eDate);
-    string getMajor();
-    void setMajor(string major);
-    string getDegree();
-    void setDegree(string degree);
-    string toString();
+    std::string getMajor();
+    void setMajor(std::string major);
+    std::string getDegree();
+    void setDegree(std::string degree);
+    std::string toString();
 
 private: 
-    string schoolName;
-    string startDate;
-    string endDate;
-    string major;
-    string degree;
+    std::string schoolName;
+    std::string startDate;
+    std::string endDate;
+    std::string major;
+    std::string degree;
 };
 
 #endif //_CSCHOOLEXPERIENCE_H

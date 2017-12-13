@@ -6,7 +6,7 @@
 #include "CProject.h"
 #include <sstream>
 
-CProject::CProject(string title, string description, time_t start, time_t end, string role, list<string> responsibilities) {
+CProject::CProject(std::string title, std::string description, time_t start, time_t end, std::string role, std::list<std::string> responsibilities) {
 	this->projectTitle = title;
 	this->projectDescription = description;
 	this->startDate = start;
@@ -15,19 +15,19 @@ CProject::CProject(string title, string description, time_t start, time_t end, s
 	this->responsibilities = responsibilities;
 }
 
-string CProject::getPrjTitle() {
+std::string CProject::getPrjTitle() {
     return projectTitle;
 }
 
-void CProject::setPrjTitle(string title) {
+void CProject::setPrjTitle(std::string title) {
     this->projectTitle = title;
 }
 
-string CProject::getPrjDescription() {
+std::string CProject::getPrjDescription() {
     return projectDescription;
 }
 
-void CProject::setPrjDescription(string description) {
+void CProject::setPrjDescription(std::string description) {
     this->projectDescription = description;
 }
 
@@ -47,25 +47,25 @@ void CProject::setEnd(time_t end) {
     this->endDate = end;
 }
 
-string CProject::getRole() {
+std::string CProject::getRole() {
 	return role;
 }
 
-void CProject::setRole(string role) {
+void CProject::setRole(std::string role) {
 	this->role = role;
 }
 
-list<string> CProject::getResponsbilities() {
+std::list<std::string> CProject::getResponsbilities() {
     return responsibilities;
 }
 
-void CProject::setResponsibilities(list<string> resp) {
+void CProject::setResponsibilities(std::list<std::string> resp) {
     this->responsibilities = resp;
 }
 
-string CProject::toString() {
-	// TODO Convert start and end date to string
-    string str = "Project Title: " + projectTitle + '\n' 
+std::string CProject::toString() {
+	// TODO Convert start and end date to std::string
+    std::string str = "Project Title: " + projectTitle + '\n' 
 		+ "Project Description: " + projectDescription + '\n'
 		+ "Project Role: " + role + '\n'
 		+ "Project Start Date: " //+ startDate + '\n'

@@ -7,37 +7,35 @@
 #include "CContactInfo.h"
 #include <sstream>
 
-using namespace std;
-
 CStudent::CStudent()
 {
 	this->name = "";
 	this->ID = "";
 }
 
-CStudent::CStudent(string name, string ID)
+CStudent::CStudent(std::string name, std::string ID)
 {
 	this->name = name;
 }
 
 CStudent::~CStudent() {};
 
-string CStudent::getName()
+std::string CStudent::getName()
 {
 	return name;
 }
 
-void CStudent::setName(string name)
+void CStudent::setName(std::string name)
 {
 	this->name = name;
 }
 
-string CStudent::getID()
+std::string CStudent::getID()
 {
 	return ID;
 }
 
-void CStudent::setID(string ID)
+void CStudent::setID(std::string ID)
 {
 	this->ID = ID;
 }
@@ -52,12 +50,12 @@ void CStudent::setContact(CContactInfo contact)
 	this->contactInfo = contact;
 }
 
-string CStudent::getFullInfo()
+std::string CStudent::getFullInfo()
 {
 	return "";
 }
 
-string CStudent::toString()
+std::string CStudent::toString()
 {
 	return "Name: " + name + '\n' + " ID: " + ID + '\n' + contactInfo.toString();
 }
