@@ -1,6 +1,7 @@
 #pragma once
 
-
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
 #include "StartScreenControl.h"
 #include "CreateProfileControl.h"
 #include "EditProfileControl.h"
@@ -13,7 +14,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace msclr::interop;
 
 namespace Jeopardy {
 
@@ -31,8 +32,11 @@ namespace Jeopardy {
 			//
 		}
 
-		ProfilesControl(CStudent student)
+		ProfilesControl(CStudent *student)
 		{
+			this->student = student;
+			CContactInfo contact_info = student->getContact();
+			NameBox->Text = marshal_as<String^>(student->getName());
 
 		}
 
@@ -47,6 +51,10 @@ namespace Jeopardy {
 				delete components;
 			}
 		}
+
+	private:
+		CStudent* student;
+
 	private: System::Windows::Forms::Label^  ProfilesLabel;
 	private: System::Windows::Forms::Button^  CreateButton;
 
