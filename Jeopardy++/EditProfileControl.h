@@ -1,6 +1,10 @@
 #pragma once
 
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
 #include "ProfilesControl.h"
+#include <iostream>
+#include <fstream>
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -8,7 +12,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace msclr::interop;
 
 namespace Jeopardy {
 
@@ -24,6 +28,29 @@ namespace Jeopardy {
 			//
 			//TODO: Add the constructor code here
 			//
+			// read from file
+			std::ifstream file("profile.bin");
+
+			if (file.good())
+			{
+				char data[2000];
+				file.getline(data, 2000, '\n');
+				String^ name = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ id = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ address = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ email = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ phone = marshal_as<String^>(data);
+
+				NameBox->Text = name;
+				IDBox->Text = id;
+				AddressBox->Text = address;
+				EmailBox->Text = email;
+				PhoneBox->Text = phone;
+			}
 		}
 
 	protected:
@@ -233,6 +260,7 @@ namespace Jeopardy {
 			this->UpdateButton->TabIndex = 12;
 			this->UpdateButton->Text = L"Update";
 			this->UpdateButton->UseVisualStyleBackColor = false;
+			this->UpdateButton->Click += gcnew System::EventHandler(this, &EditProfileControl::UpdateButton_Click);
 			// 
 			// BackButton
 			// 
@@ -277,5 +305,6 @@ namespace Jeopardy {
 		}
 #pragma endregion
 	private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void UpdateButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

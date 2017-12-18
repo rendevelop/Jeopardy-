@@ -1,6 +1,10 @@
 #pragma once
 
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
 #include "ProfilesControl.h"
+#include <iostream>
+#include <fstream>
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -8,7 +12,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace msclr::interop;
 
 namespace Jeopardy {
 
@@ -232,6 +236,7 @@ namespace Jeopardy {
 			this->CreateButton->TabIndex = 12;
 			this->CreateButton->Text = L"Create";
 			this->CreateButton->UseVisualStyleBackColor = false;
+			this->CreateButton->Click += gcnew System::EventHandler(this, &CreateProfileControl::CreateButton_Click);
 			// 
 			// BackButton
 			// 
@@ -276,5 +281,6 @@ namespace Jeopardy {
 		}
 #pragma endregion
 private: System::Void BackButton_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void CreateButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

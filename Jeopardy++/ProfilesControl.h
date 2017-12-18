@@ -1,6 +1,9 @@
 #pragma once
 
-
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
+#include <iostream>
+#include <fstream>
 #include "StartScreenControl.h"
 #include "CreateProfileControl.h"
 #include "EditProfileControl.h"
@@ -13,7 +16,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace msclr::interop;
 
 namespace Jeopardy {
 
@@ -29,11 +32,44 @@ namespace Jeopardy {
 			//
 			//TODO: Add the constructor code here
 			//
+			// read from file
+			std::ifstream file("profile.bin");
+
+			if (file.good())
+			{
+				char data[2000];
+				file.getline(data, 2000, '\n');
+				String^ name = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ id = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ address = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ email = marshal_as<String^>(data);
+				file.getline(data, 2000, '\n');
+				String^ phone = marshal_as<String^>(data);
+
+				NameBox->Text = name;
+				IDBox->Text = id;
+				AddressBox->Text = address;
+				EmailBox->Text = email;
+				PhoneBox->Text = phone;
+			}
 		}
 
-		ProfilesControl(CStudent student)
+		ProfilesControl(CStudent *student)
 		{
-
+			String^ name = marshal_as<String^>(student->getName());
+			String^ id = marshal_as<String^>(student->getID());
+			String^ address = marshal_as<String^>(student->getContact().getAddress());
+			String^ email = marshal_as<String^>(student->getContact().getEmail());
+			String^ phone = marshal_as<String^>(student->getContact().getPhone());
+			
+			NameBox->Text = name;
+			IDBox->Text = id;
+			AddressBox->Text = address;
+			EmailBox->Text = email;
+			PhoneBox->Text = phone;
 		}
 
 	protected:

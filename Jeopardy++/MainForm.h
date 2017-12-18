@@ -64,8 +64,14 @@ namespace Jeopardy {
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->ResumeLayout(false);
 
+			//
+			// CStudent
+			//
+			student = new CStudent();
 		}
 #pragma endregion
+	private:
+		CStudent * student;
 	private: System::Void MainForm_Load(System::Object^  sender, System::EventArgs^  e) {
 		StartScreenControl ^sscontrol = gcnew StartScreenControl();
 		sscontrol->Top = 0;
