@@ -7,6 +7,7 @@ using namespace msclr::interop;
 
 System::Void Jeopardy::QuizBoardControl::cellBtn_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
+	
 	Button^ button = safe_cast<Button^>(sender);
 	Int32 index = safe_cast<Int32>(button->Tag);
 	CQuestion quest = quiz->getQuestion(index);

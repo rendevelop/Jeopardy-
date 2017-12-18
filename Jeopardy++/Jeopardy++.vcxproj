@@ -134,6 +134,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="base64.cpp" />
     <ClCompile Include="CAssessment.cpp" />
     <ClCompile Include="CAssessUnit.cpp" />
     <ClCompile Include="CContactInfo.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="StartScreenControl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="base64.h" />
     <ClInclude Include="CAssessment.h" />
     <ClInclude Include="CAssessUnit.h" />
     <ClInclude Include="CContactInfo.h" />
@@ -175,6 +177,7 @@
     <ClInclude Include="EditProfileControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

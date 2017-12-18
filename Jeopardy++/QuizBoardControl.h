@@ -1,7 +1,14 @@
 #pragma once
 
-#include "CQuiz.h"
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
+#include <windows.h>
+#include <Wininet.h>
 #include <iostream>
+#include <fstream>
+#include "json.hpp"
+#include "base64.h"
+#include "CQuiz.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -9,6 +16,9 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace System::Net;
+using namespace msclr::interop;
+using namespace nlohmann;
 
 namespace Jeopardy {
 	/// <summary>
@@ -24,28 +34,58 @@ namespace Jeopardy {
 			//TODO: Add the constructor code here
 			//
 
+			// set up webclient
+			std::string json_response;
+			try {
+				MessageBox::Show("Loading questions from online API: opentdb.com");
+				WebClient ^client = gcnew WebClient();
+				json_response = marshal_as < std::string>(client->DownloadString("https://opentdb.com/api.php?amount=30&encode=base64"));
+			}
+			catch (WebException ^ex)
+			{
+				// failed to connect, load default questions
+				Console::WriteLine(ex->Message);
+				MessageBox::Show("Cannot connect to the internet. Loading default questions.");
+				std::ifstream file("default.json");
+				json_response = file.get();
+				
+			}
+
 			// set up quiz
+			json parse = json::parse(json_response)["results"];
 			quiz = new CQuiz();
 			quiz->setTitle("Random Quiz");
-
+			auto it = parse.begin();
 			for (int i = 0; i < COLS; i++)
 			{
 				int points = 100;
 				for (int j = 0; j < ROWS; j++)
 				{
 					CQuestion question;
-					question.setTitle(std::string("Question Title"));
-					question.setAnswer(std::string("Answer"));
+					json &val = it.value();
+					std::string question_str = base64_decode(val["question"].get<std::string>());
+					std::string answer_str = base64_decode(val["correct_answer"].get<std::string>());
+
+					question.setTitle(question_str);
+					question.setAnswer(answer_str);
 					question.setPoints(points);
 					question.setQuestionType(i+1);
-					question.setID(std::rand() % 1000);
-					question.addOption(std::string("Random"));
-					question.addOption(std::string("Answer"));
-					question.addOption(std::string("Option"));
-					question.addOption(std::string("Choice"));
+					question.setID(i);
+					question.addOption(answer_str);
+
+					json options = val["incorrect_answers"];
+					for (auto it2 = options.begin(); it2 != options.end(); ++it2)
+					{
+						json &val2 = it2.value();
+						std::string incorrect_answer = base64_decode(val2.get<std::string>());
+						question.addOption(incorrect_answer);
+					}
+
 					// add to quiz
 					quiz->addQuestion(question);
 					points *= 2;
+
+					it++;
 				}
 			}
 
