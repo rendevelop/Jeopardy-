@@ -47,8 +47,7 @@ namespace Jeopardy {
 				Console::WriteLine(ex->Message);
 				MessageBox::Show("Cannot connect to the internet. Loading default questions.");
 				std::ifstream file("default.json");
-				json_response = file.get();
-				
+				json_response.assign((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
 			}
 
 			// set up quiz

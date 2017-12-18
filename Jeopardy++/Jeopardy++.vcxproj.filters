@@ -181,4 +181,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="default.json">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
