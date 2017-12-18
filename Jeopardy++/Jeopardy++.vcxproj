@@ -154,7 +154,6 @@
     <ClCompile Include="QuizBoardControl.cpp" />
     <ClCompile Include="QuizControl.cpp" />
     <ClCompile Include="StartScreenControl.cpp" />
-    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CAssessment.h" />
@@ -194,7 +193,6 @@
     <ClInclude Include="StartScreenControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
-    <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CreateProfileControl.resx">
