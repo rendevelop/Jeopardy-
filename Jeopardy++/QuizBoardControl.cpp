@@ -1,6 +1,7 @@
 #include <msclr\marshal.h>
 #include <msclr\marshal_cppstd.h>
 #include "QuizBoardControl.h"
+#include "StartScreenControl.h"
 
 using namespace msclr::interop;
 
@@ -124,6 +125,8 @@ System::Void Jeopardy::QuizBoardControl::choiceBtn_Click(System::Object ^ sender
 			}
 		}
 	}
+
+	Check_Win();
 }
 
 System::Void Jeopardy::QuizBoardControl::PointsValueLabel_TextChanged(System::Object ^ sender, System::EventArgs ^ e)
@@ -138,5 +141,36 @@ System::Void Jeopardy::QuizBoardControl::PointsValueLabel_TextChanged(System::Ob
 	else
 	{
 		label->ForeColor = System::Drawing::Color::Green;
+	}
+}
+
+System::Void Jeopardy::QuizBoardControl::Check_Win()
+{
+	bool any_visible = false;
+	for (int i = 0; i < COLS; i++)
+	{
+		for (int j = 0; j < ROWS; j++)
+		{
+			if (buttons_visibility[i, j])
+			{
+				any_visible = true;
+			}
+		}
+	}
+	if (!any_visible)
+	{
+		if (points <= 0)
+		{
+			MessageBox::Show("Unfortunately you have loss with $" + points + ".", "Game Loss");
+		}
+		else
+		{
+			MessageBox::Show("Congratulations you have won with $" + points + "!", "Game Won");
+		}
+		StartScreenControl ^sscontrol = gcnew StartScreenControl();
+		sscontrol->Top = 0;
+		sscontrol->Left = 0;
+		this->Controls->Clear();
+		this->Controls->Add(sscontrol);
 	}
 }

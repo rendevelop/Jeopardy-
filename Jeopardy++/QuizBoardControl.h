@@ -88,9 +88,45 @@ namespace Jeopardy {
 
 		}
 
-		QuizBoardControl(CQuiz quiz)
+		QuizBoardControl(CQuiz* quiz)
 		{
-			
+			this->quiz = quiz;
+			// set up the buttons
+			buttons = gcnew cli::array<Button ^, 2>(COLS, ROWS);
+			buttons_visibility = gcnew cli::array<bool, 2>(COLS, ROWS);
+			int x = 3;
+			for (int i = 0; i < COLS; i++)
+			{
+				int y = 71;
+				for (int j = 0; j < ROWS; j++) {
+					System::Diagnostics::Debug::WriteLine("ROW: " + j + " COL: " + i + " INDEX: " + (i*ROWS + j));
+					CQuestion question = quiz->getQuestion(i * ROWS + j);
+					Int32 cash = Convert::ToInt32(question.getPoints());
+					// Create buttons
+					buttons[i, j] = gcnew System::Windows::Forms::Button();
+					buttons[i, j]->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+					buttons[i, j]->FlatAppearance->BorderSize = 4;
+					buttons[i, j]->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
+					buttons[i, j]->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
+					buttons[i, j]->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+					buttons[i, j]->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						static_cast<System::Byte>(0)));
+					buttons[i, j]->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(221)),
+						static_cast<System::Int32>(static_cast<System::Byte>(9)));
+					buttons[i, j]->Size = System::Drawing::Size(130, 77);
+					buttons[i, j]->Left = x;
+					buttons[i, j]->Top = y;
+					buttons[i, j]->TabIndex = 12;
+					buttons[i, j]->Text = L"$" + Convert::ToString(cash);
+					buttons[i, j]->UseVisualStyleBackColor = true;
+					buttons[i, j]->Tag = gcnew Int32(i * ROWS + j);
+					buttons[i, j]->Click += gcnew System::EventHandler(this, &QuizBoardControl::cellBtn_Click);
+					buttons_visibility[i, j] = true; // set all visibility to true by default
+					this->Controls->Add(buttons[i, j]);
+					y += 71;
+				}
+				x += 126;
+			}
 		}
 
 	protected:
@@ -380,5 +416,6 @@ private:
 	System::Void cellBtn_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void choiceBtn_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void PointsValueLabel_TextChanged(System::Object^  sender, System::EventArgs^  e);
+	System::Void Check_Win();
 };
 }
